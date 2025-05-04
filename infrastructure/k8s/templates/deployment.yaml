@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "superdeepagent.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "superdeepagent.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "superdeepagent.name" . }}
+    spec:
+      containers:
+        - name: superdeepagent
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80

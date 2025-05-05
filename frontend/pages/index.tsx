@@ -14,10 +14,10 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-primary mb-8">
-          SuperDeepAgent Phase 3 UI
+          SuperDeepAgent UI
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link href="/feedback" className="card hover:bg-opacity-80 transition-colors">
             <h2 className="text-2xl font-semibold mb-4">Feedback System</h2>
             <p>View and manage agent feedback, metrics, and performance evaluations.</p>
@@ -31,6 +31,11 @@ export default function Home() {
           <Link href="/metalearning" className="card hover:bg-opacity-80 transition-colors">
             <h2 className="text-2xl font-semibold mb-4">Meta-Learning Framework</h2>
             <p>Explore knowledge transfer, adaptation patterns, and learning analytics.</p>
+          </Link>
+
+          <Link href="/plugins" className="card hover:bg-opacity-80 transition-colors">
+            <h2 className="text-2xl font-semibold mb-4">Plugin Manager</h2>
+            <p>Manage, configure, and monitor plugins to extend agent capabilities.</p>
           </Link>
         </div>
       </main>

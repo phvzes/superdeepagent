@@ -26,8 +26,11 @@ services:
     environment:
       - ENV=development
       - CUDA_VISIBLE_DEVICES=all
+      - ENABLE_PLUGINS=true
+      - PLUGINS_DIR=/app/plugins
     volumes:
       - ../../backend:/app
+      - ../../backend/user_plugins:/app/plugins:ro
       - /app/__pycache__
     command: >
       sh -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"

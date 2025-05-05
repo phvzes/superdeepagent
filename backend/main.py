@@ -11,6 +11,7 @@ from feedback.manager import FeedbackManager
 from improvement.engine import ImprovementEngine
 from metalearning.framework import MetaLearningFramework
 from models.pipeline.llm_pipeline import LLMPipeline
+from api.plugin_routes import router as plugin_router  # Import the plugin router
 
 # Create FastAPI app
 app = FastAPI(
@@ -69,6 +70,9 @@ async def get_metalearning_metrics():
 @app.post("/api/metalearning/transfer")
 async def transfer_knowledge(transfer_data: dict):
     return {"result": metalearning_framework.transfer_knowledge(transfer_data)}
+
+# Include plugin routes
+app.include_router(plugin_router)
 
 # Main entry point
 if __name__ == "__main__":

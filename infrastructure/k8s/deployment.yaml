@@ -35,13 +35,22 @@ spec:
           value: "production"
         - name: CUDA_VISIBLE_DEVICES
           value: "all"
+        - name: ENABLE_PLUGINS
+          value: "true"
+        - name: PLUGINS_DIR
+          value: "/app/plugins"
         volumeMounts:
         - name: config-volume
           mountPath: /app/config
+        - name: plugins-volume
+          mountPath: /app/plugins
+          readOnly: true
       volumes:
       - name: config-volume
         configMap:
           name: superdeepagent-config
+      - name: plugins-volume
+        emptyDir: {}
       nodeSelector:
         accelerator: nvidia-gpu
 ---
